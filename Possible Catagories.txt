@@ -1,0 +1,6 @@
+Name            Words
+Price           Budget,value,
+Location        Downtown,
+Cleanliness 
+Service         Great    
+
