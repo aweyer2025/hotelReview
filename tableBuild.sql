@@ -49,26 +49,33 @@ CREATE TABLE Feature (
     Title VARCHAR(20)
 );
 
-CREATE TABLE Seed(
+CREATE TABLE Seed (
     SeedID INT PRIMARY KEY,
-    wordOrPhrase VARCHAR(40)
-    Polarity INT
-    FeatureID FOREIGN KEY
+    wordOrPhrase VARCHAR(40),
+    Polarity INT,
+    FeatureID INT,
+    FOREIGN KEY (FeatureID) REFERENCES Feature(FeatureID)
 );
+
 
 CREATE TABLE Rating (
     RatingID INT PRIMARY KEY,
     Rating VARCHAR(20),
-    FeatureID FOREIGN KEY,
-    hotelID FOREIGN KEY
-)
+    FeatureID INT, 
+    HotelID INT,    
+    FOREIGN KEY (FeatureID) REFERENCES FEATURE(FeatureID),
+    FOREIGN KEY (HotelID) REFERENCES HOTEL(HotelID)
+);
 
-CREATE Review(
+
+CREATE TABLE Review (
     ReviewID INT PRIMARY KEY,
     Title VARCHAR(300),
     Review CLOB,
-    Date VARCHAR(15)
-    hotelID FOREIGN KEY
-)
+    "ReviewDate" VARCHAR(15),
+    hotelID INT,  
+    FOREIGN KEY (hotelID) REFERENCES HOTEL (HOTELID)
+);
+
 
 commit;
